@@ -16,7 +16,7 @@ const Sidebar = () => {
           aria-label="close sidebar"
           className="drawer-overlay"
         ></label>
-        <div className="menu bg-[#4F39F6] text-base-content min-h-full w-72 p-4">
+        <div className="menu text-base-content min-h-full w-72 p-4 bg-blue-600">
         <ul>
           <li>
             <Link

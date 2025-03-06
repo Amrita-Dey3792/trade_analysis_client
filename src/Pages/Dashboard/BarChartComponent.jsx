@@ -1,19 +1,19 @@
 import React from "react";
 import {
+  Bar,
   CartesianGrid,
   ComposedChart,
   Legend,
-  Line,
   ResponsiveContainer,
   Tooltip,
   XAxis,
   YAxis,
 } from "recharts";
 
-const LineChartComponent = ({ filteredData }) => {
+const BarChartComponent = ({ filteredData }) => {
   return (
     <section className="bg-white p-5 rounded-xl shadow-md">
-      <h2 className="text-center mb-2">Line Chart (Close Price Trend)</h2>
+      <h2 className="text-center mb-2">Bar Chart (Volume)</h2>
       <ResponsiveContainer width="100%" height={400}>
         <ComposedChart data={filteredData}>
           <CartesianGrid strokeDasharray="3 3" />
@@ -21,16 +21,11 @@ const LineChartComponent = ({ filteredData }) => {
           <YAxis />
           <Tooltip />
           <Legend />
-          <Line
-            type="monotone"
-            dataKey="avg" // Using avg from the response
-            stroke="#8884d8"
-            strokeWidth={2}
-          />
+          <Bar dataKey="volume" fill="#2ecc71" />
         </ComposedChart>
       </ResponsiveContainer>
     </section>
   );
 };
 
-export default LineChartComponent;
+export default BarChartComponent;

@@ -1,5 +1,6 @@
 import React from "react";
 import {
+  Bar,
   CartesianGrid,
   ComposedChart,
   Legend,
@@ -10,27 +11,32 @@ import {
   YAxis,
 } from "recharts";
 
-const LineChartComponent = ({ filteredData }) => {
+const MultiAxisChartComponent = ({ filteredData }) => {
   return (
-    <section className="bg-white p-5 rounded-xl shadow-md">
-      <h2 className="text-center mb-2">Line Chart (Close Price Trend)</h2>
+    <section className="bg-white shadow-md p-5 rounded-xl xl:col-span-2">
+      <h2 className="text-center mb-2">
+        Multi-Axis Chart (Close Price & Volume)
+      </h2>
       <ResponsiveContainer width="100%" height={400}>
         <ComposedChart data={filteredData}>
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="date" />
-          <YAxis />
+          <YAxis yAxisId="left" orientation="left" stroke="#8884d8" />
+          <YAxis yAxisId="right" orientation="right" stroke="#2ecc71" />
           <Tooltip />
           <Legend />
           <Line
+            yAxisId="left"
             type="monotone"
             dataKey="avg" // Using avg from the response
             stroke="#8884d8"
             strokeWidth={2}
           />
+          <Bar yAxisId="right" dataKey="volume" fill="#2ecc71" />
         </ComposedChart>
       </ResponsiveContainer>
     </section>
   );
 };
 
-export default LineChartComponent;
+export default MultiAxisChartComponent;
