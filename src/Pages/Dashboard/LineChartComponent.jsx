@@ -10,12 +10,13 @@ import {
   YAxis,
 } from "recharts";
 
-const LineChartComponent = ({ filteredData }) => {
+const LineChartComponent = ({ chartData }) => {
+  console.log(chartData);
   return (
     <section className="bg-white p-5 rounded-xl shadow-md">
-      <h2 className="text-center mb-2">Line Chart (Close Price Trend)</h2>
+      <h2 className="text-center mb-2">Line Chart (close)</h2>
       <ResponsiveContainer width="100%" height={400}>
-        <ComposedChart data={filteredData}>
+        <ComposedChart data={chartData}>
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="date" />
           <YAxis />
@@ -23,7 +24,7 @@ const LineChartComponent = ({ filteredData }) => {
           <Legend />
           <Line
             type="monotone"
-            dataKey="avg" // Using avg from the response
+            dataKey="close" 
             stroke="#8884d8"
             strokeWidth={2}
           />

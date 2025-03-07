@@ -11,14 +11,15 @@ import {
   YAxis,
 } from "recharts";
 
-const MultiAxisChartComponent = ({ filteredData }) => {
+const MultiAxisChartComponent = ({ chartData }) => {
+  console.log(chartData);
   return (
     <section className="bg-white shadow-md p-5 rounded-xl xl:col-span-2">
       <h2 className="text-center mb-2">
         Multi-Axis Chart (Close Price & Volume)
       </h2>
       <ResponsiveContainer width="100%" height={400}>
-        <ComposedChart data={filteredData}>
+        <ComposedChart data={chartData}>
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="date" />
           <YAxis yAxisId="left" orientation="left" stroke="#8884d8" />
@@ -28,7 +29,7 @@ const MultiAxisChartComponent = ({ filteredData }) => {
           <Line
             yAxisId="left"
             type="monotone"
-            dataKey="avg" // Using avg from the response
+            dataKey="close" 
             stroke="#8884d8"
             strokeWidth={2}
           />

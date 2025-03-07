@@ -10,12 +10,12 @@ import {
   YAxis,
 } from "recharts";
 
-const BarChartComponent = ({ filteredData }) => {
+const BarChartComponent = ({ chartData }) => {
   return (
     <section className="bg-white p-5 rounded-xl shadow-md">
       <h2 className="text-center mb-2">Bar Chart (Volume)</h2>
       <ResponsiveContainer width="100%" height={400}>
-        <ComposedChart data={filteredData}>
+        <ComposedChart data={chartData}>
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="date" />
           <YAxis />
